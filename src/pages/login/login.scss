@@ -1,0 +1,25 @@
+$bg-background : rgb(218, 179, 255);
+page-login {
+    ion-content{
+	background-color: $bg-background !important;
+    }
+    .login{
+	text-align: center;
+	//border: 2px solid;
+	margin: 0 auto;
+	margin-top: 40%;
+	width: 60%;
+	border-radius: 5px;
+    }
+    .btn-login{
+	background-color: #fff;
+	border-radius: 10px;
+	width: 80%;
+	margin: 16px;
+    }
+   
+    .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element{
+	caret-color:#ccc;
+    }
+
+}

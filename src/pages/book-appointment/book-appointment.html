@@ -1,0 +1,75 @@
+<ion-header>
+    <ion-navbar>
+	<ion-title class="title-center">Book Appointment</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="center-wrap white-background">
+	<form class="appointment-form" [formGroup]="bookingAppointmentForm">
+	    <span class="error-message error-message-2" *ngIf="IsError" innerHtml="{{errorMsg}}"></span>
+	    <div>
+		<mat-form-field class="full-width">
+		    <input type="text" matInput [formControl]="bookingAppointmentForm.controls['patent_name']" [ngClass]="{'error-border':!bookingAppointmentForm.controls['patent_name'].valid}" placeholder="Patent's name *" >
+		</mat-form-field>
+		<div class="full-width error-box" *ngIf="bookingAppointmentForm.controls['patent_name'].hasError('required') && bookingAppointmentForm.controls['patent_name'].touched">* Patent's name is required!</div>
+	    </div>
+
+	    <div>
+		<mat-form-field class="full-width">
+		    <input matInput type="text" [formControl]="bookingAppointmentForm.controls['age']" placeholder="Age" required>
+		</mat-form-field>
+		<div class="full-width error-box" *ngIf="bookingAppointmentForm.controls['age'].hasError('required') && bookingAppointmentForm.controls['age'].touched">* Age is required!</div>
+	    </div>
+
+	    <div>
+		<mat-form-field>
+		    <input matInput [matDatepicker]="dp3" placeholder="Choose appointment date" [formControl]="bookingAppointmentForm.controls['appointment_date']" >
+			   <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+		    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+		</mat-form-field>
+	    </div>
+
+	    <div>
+		<mat-form-field class="full-width">
+		    <textarea matInput type="text" [formControl]="bookingAppointmentForm.controls['address']" placeholder="Address" required></textarea>
+		</mat-form-field>
+		<div class="full-width error-box" *ngIf="bookingAppointmentForm.controls['address'].hasError('required') && bookingAppointmentForm.controls['address'].touched">* Address is required!</div>
+	    </div>
+
+	    <div>
+		<mat-form-field>
+		    <mat-select placeholder="Blood Group"  [formControl]="bookingAppointmentForm.controls['blood_group']">
+			<mat-option *ngFor="let group of bloodGroup" [value]="group.value">
+			    {{ group.viewValue }}
+		    </mat-option>
+		</mat-select>
+	    </mat-form-field>
+	</div>
+	<div>
+	    <mat-form-field class="full-width">
+		<textarea matInput type="text" [formControl]="bookingAppointmentForm.controls['problem']" placeholder="Reason for visit" required></textarea>
+	    </mat-form-field>
+	    <div class="full-width error-box" *ngIf="bookingAppointmentForm.controls['problem'].hasError('required') && bookingAppointmentForm.controls['problem'].touched">* Reason is required!</div>
+	</div>
+
+	<div>
+	    <mat-form-field class="full-width">
+		<textarea matInput type="text" [formControl]="bookingAppointmentForm.controls['comment']" placeholder="Comment" ></textarea>
+	    </mat-form-field>
+	</div>
+
+	<div class="padding-5px-bottom">
+	    <label>Have you visited before?</label>
+	    <mat-radio-group [formControl]="bookingAppointmentForm.controls['isVisited']" ><br>
+		<mat-radio-button value="yes">Yes</mat-radio-button>
+		<mat-radio-button value="no">No</mat-radio-button>
+	    </mat-radio-group>
+	    <div class="full-width error-box" *ngIf="bookingAppointmentForm.controls['isVisited'].hasError('required') && bookingAppointmentForm.controls['isVisited'].touched">* This is required!</div>
+	</div>
+
+	<button mat-raised-button color="primary" (click)="onSubmit()" >Submit</button>
+	<br/>
+    </form>
+</div>
+</ion-content>

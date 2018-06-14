@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar style="color:rgb(218, 179, 255)">
+
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div class="login">
+	<form class="login-form" [formGroup]="registerForm">
+	    <span class="error-message error-message-2" *ngIf="IsError" innerHtml="{{errorMsg}}"></span>
+
+	    <mat-form-field class="full-width">
+		<input type="text" matInput [formControl]="registerForm.controls['email']" [ngClass]="{'error-border':!registerForm.controls['email'].valid}" placeholder="Email id *" >
+	    </mat-form-field>
+	    <div class="full-width error-box" *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched">* Email id is required!</div>
+
+	    <mat-form-field class="full-width">
+		<input type="text" matInput [formControl]="registerForm.controls['mobile_number']" [ngClass]="{'error-border':!registerForm.controls['mobile_number'].valid}" placeholder="Mobile Number *" >
+	    </mat-form-field>
+	    <div class="full-width error-box" *ngIf="registerForm.controls['mobile_number'].hasError('required') && registerForm.controls['mobile_number'].touched">* Mobile Number is required!</div>
+
+	    <mat-form-field class="full-width">
+		<input matInput type="password" [formControl]="registerForm.controls['password']" placeholder="Password" required>
+	    </mat-form-field>
+	    <div class="full-width error-box" *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched">* Password is required!</div>
+
+	    <mat-form-field class="full-width">
+		<input matInput type="password" [formControl]="registerForm.controls['cnf_password']" placeholder="Confirm Password" required>
+	    </mat-form-field>
+	    <div class="full-width error-box" *ngIf="registerForm.controls['cnf_password'].hasError('required') && registerForm.controls['cnf_password'].touched">* Confirm password is required!</div>
+
+
+
+
+	    <button mat-button class="btn-login" style="margin-top:20px;" (click)="onSubmit()" >Register</button>
+
+	</form>
+	<button mat-button class="btn-login" style="margin-top:20px;" (click)="previousPage()" >Back</button>
+    </div>
+</ion-content>

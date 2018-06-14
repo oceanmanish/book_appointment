@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar>
+	<ion-title class="title-center">
+	    Welcome Back 
+	</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="center-wrap">
+	<mat-grid-list cols="4" rowHeight="100px">
+	    <mat-grid-tile class="tile-cursor"
+		*ngFor="let tile of tiles"
+		[colspan]="tile.cols"
+		[rowspan]="tile.rows"
+		[style.background]="tile.color" (click)="check(tile.text)">
+		{{tile.text}}
+	</mat-grid-tile>
+    </mat-grid-list>
+</div>
+</ion-content>

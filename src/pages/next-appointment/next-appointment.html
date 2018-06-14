@@ -1,0 +1,15 @@
+<ion-header>
+    <ion-navbar>
+	<ion-title class="title-center">next-appointment</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div >
+	<div class="appointment-list"  *ngFor="let d of futureAppointmentListArray" >
+	    <p>{{d.name}}</p>
+	    <span>Age:</span> <span style="float:right">{{d.age}}</span><br/>
+	    <span>Appointment Date:</span> <span style="float:right">{{d.appointmentDate}}</span>
+	</div>
+    </div>
+</ion-content>

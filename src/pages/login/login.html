@@ -1,0 +1,26 @@
+<ion-content padding>
+    <div class="login">
+	<form class="login-form" [formGroup]="authForm">
+	    <span class="error-message error-message-2" *ngIf="IsError" innerHtml="{{errorMsg}}"></span>
+	    <div>
+		<mat-form-field class="full-width">
+		    <input type="text" matInput [formControl]="authForm.controls['email']" [ngClass]="{'error-border':!authForm.controls['email'].valid}" placeholder="Email id *" >
+		</mat-form-field>
+		<div class="full-width error-box" *ngIf="authForm.controls['email'].hasError('required') && authForm.controls['email'].touched">* Mobile Number is required!</div>
+
+	    </div>
+
+	    <div>
+		<mat-form-field class="full-width">
+		    <input matInput type="password" [formControl]="authForm.controls['password']" placeholder="Password" required>
+		</mat-form-field>
+		<div class="full-width error-box" *ngIf="authForm.controls['password'].hasError('required') && authForm.controls['password'].touched">* Password is required!</div>
+	    </div>
+
+	    <button mat-button class="btn-login" (click)="onSubmit()" >Sign in</button>
+
+	</form>
+	<button mat-button class="btn-login" (click)="goToRegisterPage()" >Register</button>
+    </div>
+
+</ion-content>
