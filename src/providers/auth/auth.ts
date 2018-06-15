@@ -8,8 +8,8 @@ export class AuthProvider {
 
     appointmentArray = [];
     constructor(public http: HttpClient, public storage: Storage) {
-	this.storage.set('username', 'test@amility.com');
-	this.storage.set('password', 'admin');
+	this.storage.set('username', 'test@makk.com');
+	this.storage.set('password', 'test');
 
     }
     authSuccess(data: any) {
