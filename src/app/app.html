@@ -1,1 +1,42 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu id="myMenu" [content]="content">
+    <ion-header>
+	<ion-toolbar>
+	    <ion-title>Menu</ion-title>
+	</ion-toolbar>
+    </ion-header>
+    <ion-content>
+	<ion-list>
+	    <button menuClose ion-item (click)="openPage('home')">
+		    <ion-icon ios="ios-home" md="md-home"></ion-icon>
+		Dashboard
+	    </button> 
+	    <button menuClose ion-item (click)="openPage('book')">
+		    <span class="menu-icons"><img src="assets/imgs/My_Training_Icon_white.png" alt="Logout_icon"/></span>
+		Book An Appointment
+	    </button> 
+	    <button menuClose ion-item (click)="openPage('nextAppointment')">
+		    <span class="menu-icons"><img src="assets/imgs/Schedule_Appointment_Icon_white.png" alt="Logout_icon"/></span>
+		Next Appointment
+	    </button>
+	    <button menuClose ion-item (click)="openPage('pastAppointment')">
+		    <span class="menu-icons"><img src="assets/imgs/My_Profile_Icon_white.png" alt="Logout_icon"/></span>
+		My Past Appointment
+	    </button>
+
+	    <!--   <button menuClose ion-item (click)="openPage('setting')">
+		       <span class="menu-icons"><img src="assets/imgs/Settings_Icon_white.png" alt="Logout_icon"/></span>
+		   Setting
+	       </button>  
+	    -->
+	    <button menuClose ion-item (click)="openPage('logout')">
+		    <span class="menu-icons"><img src="assets/imgs/Logout_icon.png" alt="Logout_icon"/></span>
+		Logout
+	    </button> 
+
+	</ion-list>
+
+    </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar style="color:rgb(218, 179, 255)">
-
+	<ion-title class="title-center">Register</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -29,11 +29,14 @@
 	    <div class="full-width error-box" *ngIf="registerForm.controls['cnf_password'].hasError('required') && registerForm.controls['cnf_password'].touched">* Confirm password is required!</div>
 
 
+	    <div style="display: flex;margin-top: 6px;">
 
-
-	    <button mat-button class="btn-login" style="margin-top:20px;" (click)="onSubmit()" >Register</button>
-
+		<button mat-button class="btn-login" style="margin-top:20px;background: red;color: white;" (click)="previousPage()" >Back</button>
+		<div style="float: right;padding-left: 10px;">
+		    <button mat-button class="btn-login" style="margin-top:20px; background: lightblue; color:white;" (click)="onSubmit()" >Register</button>
+		</div>
+	    </div>
 	</form>
-	<button mat-button class="btn-login" style="margin-top:20px;" (click)="previousPage()" >Back</button>
+
     </div>
 </ion-content>

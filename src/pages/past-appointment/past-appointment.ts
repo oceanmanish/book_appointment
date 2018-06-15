@@ -1,12 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-
-/**
- * Generated class for the PastAppointmentPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {AuthProvider} from '../../providers/auth/auth';
 
 @IonicPage()
 @Component({
@@ -16,19 +10,19 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 export class PastAppointmentPage {
 
 
-    pastAppointmentListArray = [
-	{name: "ABC", age: "24", appointmentDate: '26/06/2018'},
-	{name: "XYZ", age: "22", appointmentDate: '27/06/2018'},
-	{name: "ABC", age: "25", appointmentDate: '28/06/2018'},
-	{name: "XYZ", age: "26", appointmentDate: '29/06/2018'},
-	{name: "ABC", age: "27", appointmentDate: '30/06/2018'},
-	{name: "XYZ", age: "28", appointmentDate: '31/06/2018'}
-    ];
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    appointmentList: any;
+    constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthProvider) {
+
     }
 
     ionViewDidLoad() {
-	console.log('ionViewDidLoad PastAppointmentPage');
+	this.auth.getAppointmentList('book').then(data => {
+	    if (data) {
+		this.appointmentList = data;
+		console.log(this.appointmentList);
+	    }
+
+	});
     }
 
 }

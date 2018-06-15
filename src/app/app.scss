@@ -1,8 +1,65 @@
+$primary-dark: rgb(60, 47, 23);
+$secondry-dark: rgb(110, 110, 112);
+$primary-green: rgb(213, 217, 12);
+$white-color: rgb(255, 255, 255);
+$font-regular: 'Raleway-regular';
+$font-medium: 'Raleway-medium';
+$font-bold: 'Raleway-Bold';
 $text-center:center;
+$text-left:left;
+$text-right:right;
+$font-weight-light: 300;
+$font-weight-regular: 500;
+$font-weight-bold: 700;
+$placeholder-color: rgb(205, 205, 205);
 .center-wrap {
     max-width: 300px;
     width: 100%;
-    text-align: $text-center;
+    // text-align: $text-center;
     margin: 30px auto;
     margin-bottom: 0px;
+}
+ion-title{
+    text-align:$text-center
+}
+.menu-icons img {
+    max-width: 20px;
+    margin-right: 10px;
+    max-height: 17px;
+}
+
+.item-md .item-inner .label.label-md,
+.label-ios {
+    //color: $white-color;
+    font-size: 17px;
+    margin: 11px 8px 11px 0;
+    font-weight: $font-weight-regular;
+
+    .menu-icons{
+	vertical-align: middle;
+    }
+
+}
+
+error-message{
+    border: 1px solid red;
+    border-radius: 7px;
+    color: red;
+    padding: 1px;
+
+}
+success-message{
+    border: 1px solid #216e0e;
+
+    border-radius: 7px;
+
+    color: #1b512f;
+
+    padding: 1px;
+}
+.error-box{
+    font-size: 12px;
+    display: -moz-box;
+    width: 100%;
+   
 }

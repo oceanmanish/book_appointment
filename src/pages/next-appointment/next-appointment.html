@@ -1,15 +1,23 @@
 <ion-header>
     <ion-navbar>
+	<button ion-button menuToggle icon-only (click)='check()' class="toggle-icon">
+	</button>
 	<ion-title class="title-center">next-appointment</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <div >
-	<div class="appointment-list"  *ngFor="let d of futureAppointmentListArray" >
-	    <p>{{d.name}}</p>
+    <div class="center-wrap">
+	<h4> Your next appointment list</h4>
+	<div class="appointment-list"  *ngFor="let d of appointmentList ; let i=index" >
+	    <span>Name</span><span style="float:right"> {{d.name}}</span><br/>
 	    <span>Age:</span> <span style="float:right">{{d.age}}</span><br/>
-	    <span>Appointment Date:</span> <span style="float:right">{{d.appointmentDate}}</span>
+	    <span>Appointment Date:</span> <span style="float:right">{{d.time_slot}} {{d.date | date:'dd MMM yyyy'}}</span>
+	    <div style="text-align: center;">
+		<button mat-button class="btn-login" style="margin-top:20px; background-color: #ccc;color:white" (click)="cancelAppointment(i)" >Cancel</button>
+		
+	    </div>
+	    
 	</div>
     </div>
 </ion-content>

@@ -5,11 +5,16 @@
 </ion-header>
 
 <ion-content padding>
-    <div >
-	<div class="appointment-list"  *ngFor="let d of pastAppointmentListArray" >
+     <div class="center-wrap">
+	<div class="appointment-list"  *ngFor="let d of appointmentList" >
 	     <p>{{d.name}}</p>
 	    <span>Age:</span> <span style="float:right">{{d.age}}</span><br/>
-	    <span>Appointment Date:</span> <span style="float:right">{{d.appointmentDate}}</span>
+	    <span>Appointment Date:</span> <span style="float:right">{{d.time_slot}} {{d.date | date:'dd MMM yyyy'}}</span>
+	    <!--<div style="text-align: center;">
+		<button mat-button class="btn-login" style="margin-top:20px; background-color: red" (click)="backToPrevious()" >Back</button>
+		<button mat-button class="btn-login" style="margin-top:20px; background-color: #ccc" (click)="editAppointment(d.id)" >Edit Appointment</button>
+	    </div>
+	    -->
 	</div>
     </div>
 </ion-content>

@@ -16,11 +16,14 @@
 		</mat-form-field>
 		<div class="full-width error-box" *ngIf="authForm.controls['password'].hasError('required') && authForm.controls['password'].touched">* Password is required!</div>
 	    </div>
-
-	    <button mat-button class="btn-login" (click)="onSubmit()" >Sign in</button>
-
+	    <div style="display: flex;">
+		<button mat-button class="btn-login" style="background: #92db1a;color: white;" (click)="goToRegisterPage()" >Register</button>
+		<div style="float: right;padding-left: 10px;">
+		    <button mat-button class="btn-login" style="background: #ccc;color: white;" (click)="onSubmit()" >Sign in</button>
+		</div>
+	    </div>
 	</form>
-	<button mat-button class="btn-login" (click)="goToRegisterPage()" >Register</button>
+
     </div>
 
 </ion-content>

@@ -11,4 +11,16 @@ page-home {
     .tile-cursor{
 	cursor:pointer;
     }
+    .success-message{
+	background: greenyellow;
+	border-radius: 8px;
+	margin: 2px 0 2px 0;
+    }
+
+    .next-appointment{
+	background: #fff;
+	margin: 5px;
+	padding: 5px;
+	border:1px solid #ccc;
+    }
 }

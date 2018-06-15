@@ -1,6 +1,6 @@
 page-book-appointment {
     ion-content{
-	background-color: lightblue !important;
+
     }
     .white-background{
 	background-color: #fff;
@@ -11,4 +11,8 @@ page-book-appointment {
     appointment-form{
 	padding-bottom:5px;
     }
+    .error-box{
+	padding-left: 55px;
+    }
+
 }

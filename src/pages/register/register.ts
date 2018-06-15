@@ -3,6 +3,8 @@ import {IonicPage, NavController, NavParams, Platform, MenuController, LoadingCo
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 
 import {LoginPage} from '../login/login';
+import {AuthProvider} from '../../providers/auth/auth';
+import {HomePage} from '../home/home';
 
 @IonicPage()
 @Component({
@@ -16,7 +18,7 @@ export class RegisterPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
 	public platform: Platform, public loadingController: LoadingController,
-	public formBuilder: FormBuilder, public menuCtrl: MenuController, ) {
+	public formBuilder: FormBuilder, public menuCtrl: MenuController, public auth: AuthProvider) {
 
 	this.registerForm = this.formBuilder.group({
 	    'email': [null, Validators.compose([Validators.required])],
@@ -34,6 +36,7 @@ export class RegisterPage {
     }
 
     onSubmit() {
+	console.log();
 	if (this.registerForm.valid) {
 	    this.registerUser(this.registerForm.value);
 	} else {
@@ -48,7 +51,11 @@ export class RegisterPage {
      * this is for register user function
      */
     registerUser(data: any) {
-
+	
+	let res = this.auth.registerNewUser(data);
+	if (res) {
+	    this.navCtrl.setRoot(HomePage);
+	}
     }
 
     /**
